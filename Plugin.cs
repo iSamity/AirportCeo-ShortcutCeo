@@ -33,7 +33,12 @@ public class Plugin : BaseUnityPlugin
 
     void Update()
     {
-        if (SaveLoadGameDataController.loadComplete && Input.GetKeyDown(GeneralConfig.CopyKey.Value))
+        if (!SaveLoadGameDataController.loadComplete) 
+        { 
+            return;   
+        }
+
+        if( Input.GetKeyDown(GeneralConfig.CopyKey.Value))
         {
             Singleton<SelectionController>.Instance.CopyHoveredBuilding();
         }
