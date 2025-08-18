@@ -2,9 +2,6 @@
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using ShortcutCeo.config;
-using ShortcutCeo.Config;
-using UnityEngine;
-using System.Linq;
 using System;
 using System.Collections.Generic;
 

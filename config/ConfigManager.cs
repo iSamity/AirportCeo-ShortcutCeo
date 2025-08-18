@@ -3,7 +3,6 @@ using BepInEx.Configuration;
 using ShortcutCeo.Config;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace ShortcutCeo.config;
 
