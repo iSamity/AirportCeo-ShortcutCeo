@@ -4,6 +4,9 @@ using BepInEx.Logging;
 using ShortcutCeo.config;
 using ShortcutCeo.Config;
 using UnityEngine;
+using System.Linq;
+using System;
+using System.Collections.Generic;
 
 namespace ShortcutCeo;
 
@@ -12,6 +15,8 @@ public class Plugin : BaseUnityPlugin
 {
     internal static new ManualLogSource Logger;
     internal static ConfigFile ConfigReference { get; private set; }
+
+    private Dictionary<ConfigEntry<KeyboardShortcut>, Action> shortcutDictionary = new Dictionary<ConfigEntry<KeyboardShortcut>, Action>();
 
     private void Awake()
     {
@@ -29,6 +34,9 @@ public class Plugin : BaseUnityPlugin
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} finished setting up config.");
 
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is done!");
+
+ 
+
     }
 
     void Update()
@@ -38,9 +46,14 @@ public class Plugin : BaseUnityPlugin
             return;   
         }
 
-        if( Input.GetKeyDown(GeneralConfig.CopyKey.Value))
+        foreach (var kvp in ConfigManager.GetShortcuts())
         {
-            Singleton<SelectionController>.Instance.CopyHoveredBuilding();
+            if (kvp.Key.Value.IsPressed())
+            {
+                kvp.Value.Invoke();
+            }
         }
+
+
     }
 }
