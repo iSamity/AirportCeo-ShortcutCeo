@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace ShortcutCeo.Config;
 
-
 internal static class GeneralConfig
 {
     internal static ConfigEntry<KeyCode> Test { get; private set; }
