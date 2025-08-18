@@ -2,6 +2,8 @@
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using ShortcutCeo.config;
+using ShortcutCeo.Config;
+using UnityEngine;
 
 namespace ShortcutCeo;
 
@@ -27,5 +29,13 @@ public class Plugin : BaseUnityPlugin
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} finished setting up config.");
 
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is done!");
+    }
+
+    void Update()
+    {
+        if (SaveLoadGameDataController.loadComplete && Input.GetKeyDown(GeneralConfig.CopyKey.Value))
+        {
+            Singleton<SelectionController>.Instance.CopyHoveredBuilding();
+        }
     }
 }

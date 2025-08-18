@@ -34,5 +34,8 @@
     <Reference Include="AirportCEOModLoader">
       <HintPath>libs\AirportCEOModLoader.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Airport CEO\Airport CEO_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
