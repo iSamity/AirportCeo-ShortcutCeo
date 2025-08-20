@@ -46,7 +46,7 @@ public class Plugin : BaseUnityPlugin
 
         foreach (var kvp in ConfigManager.GetShortcuts())
         {
-            if (kvp.Key.Value.IsPressed())
+            if (kvp.Key.Value.IsDown())
             {
                 kvp.Value.Invoke();
             }
