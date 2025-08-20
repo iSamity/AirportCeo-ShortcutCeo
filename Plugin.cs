@@ -8,6 +8,7 @@ using System.Collections.Generic;
 namespace ShortcutCeo;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+[BepInDependency("org.airportceomodloader.humoresque")]
 public class Plugin : BaseUnityPlugin
 {
     internal static new ManualLogSource Logger;
